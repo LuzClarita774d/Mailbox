@@ -274,7 +274,7 @@ function playBackgroundMusic() {
   const musicaParam = safeMusicFilename(musicaParamRaw);
 
   // Si no hay parámetro, usa default
-  const src = musicaParam ? `Music/${musicaParam}` : `Music/music1.mp3`;
+  const src = musicaParam ? `Music/${musicaParam}` : `Music/Eclipse.mp3`;
 
   audio.src = src;
   audio.volume = 0.7;
