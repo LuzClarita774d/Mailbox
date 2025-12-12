@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Buzón de Mensajes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Fuente bonita -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Tangerine:wght@400;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="Css/style.css">
+
+
+</head>
+<body>
+
+  <main class="page">
+    <header class="header">
+      <div class="floating-heart left">❤</div>
+      <div class="floating-heart right">❤</div>
+        <img class="header-title" src="Img/titulo.png" alt="">
+    </header>
+<div id="floating-objects"></div>
+    <section class="hero">
+        <img class="hero-image" src="Img/OSITOS.png" alt="">
+      <p class="hero-text">
+         <img class="ico-carta" src="Img/ico-carta.png" alt="">
+        Aquí encontrarás mensajes especiales creados para ti.
+        Solo podrás abrir uno cada día. Con calma, mi amor…
+        todo llega.
+      </p>
+    </section>
+
+    <section>
+      <div class="cards-grid" id="cardsGrid">
+        <!-- Las cartas se generan con JS -->
+      </div>
+    </section>
+  </main>
+
+  <!-- MODAL -->
+  <div class="modal-backdrop" id="modalBackdrop">
+    <div class="modal">
+      <button class="modal-close" id="closeModal">&times;</button>
+      <div class="modal-day-pill" id="modalDay">Día X</div>
+
+      <div class="modal-card">
+        <img class="modal-heart" src="Img/corazon.png" alt="">
+        <p class="modal-message" id="modalMessage">
+          Aquí aparecerá el mensaje romántico de ese día.
+
+
+        </p>
+                  <div class="reply-box">
+  <textarea id="replyText" placeholder="Escribe tu respuesta aquí..."></textarea>
+  <button id="sendWhatsapp" disabled>Enviar 💗</button>
+</div>
+      </div>
+
+ 
+      
+    </div>
+  </div>
+
+ <script src="Js/script.js"></script>
+</body>
+</html>
