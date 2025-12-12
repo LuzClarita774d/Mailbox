@@ -11,10 +11,10 @@
     // Si hay menos mensajes que días, se reutiliza un mensaje genérico.
     const loveMessages = [
       "Busqué una forma especial de comunicarme contigo y por eso te dejé estas notitas, donde guardé todo lo que siento por nosotros, amor.Y es que hoy lo tengo claro: mi meta eres tú.\nQuiero una familia contigo, quiero todo a tu lado, porque contigo todo se siente mejor, más bonito, más real.\nDeseo de corazón que esta página te guste, porque la pensé para nosotros. Será nuestro espacio, lleno de recuerdos, palabras bonitas y pequeños detalles que hablen de lo que somos. \nVivir cada etapa contigo es algo hermoso… y contigo, uff, todo se siente distinto.\nHoy me permito ser lo más cursi, porque no quiero salir con nadie más.\n\n Quiero ser todo para ti, así como tú lo eres para mí.\n\n Te amo, amor. 💖",
-      "Cada día contigo es un regalo que mi corazón nunca se cansa de abrir.",
-      "Eres mi lugar seguro, mi abrazo favorito y mi pensamiento constante.",
-      "Si el amor tuviera un nombre, llevaría el tuyo. ❤️",
-      "No sé qué hice bien para merecerte, pero quiero seguir haciéndolo toda la vida.",
+      "Cada día contigo es un regalo que mi corazón nunca se cansa de abrir. Hoy hablemos de lo mucho que me gusta tu mirada, la forma en que me ves es tan linda y profunda.\nAmo verte y no decir ni una palabra, solo contemplar cómo me miras. Es tan bella que no encuentro formas de describirla. Y si te soy sincera, cuando quise alejarme, miré la foto que te tomé en SITE y me quedé contemplándola, diciéndome:¿Realmente no quiero ver esos ojos tan hermosos?. No podía dejar de verlos.\nY es que si me vuelvo a preguntar, diría que son los ojos que deseo ver todos los días, mientras Dios me preste vida. Sé que nunca será suficiente, pero empecemos por el hoy. Prometo ver siempre tu linda mirada que acompañas con unos lindos ojitos de color verde. ¡Wow, qué hermoso, amor!\n Espero que con el paso del tiempo siempre disfrutemos ver nuestros ojos, que son la puerta del alma.",
+      "Hoy viajo bonito, lo único triste es que no estaré contigo y te extrañaré mucho. Creo que es la primera vez que nos separamos por más tiempo, ¡qué triste! Pero amor, el día pasa rápido y estaré esperando verte. Hoy, si nos vemos, dame un abrazo fuerte, y debes prometer que te vas a cuidar mucho, ¿sí? No me gustaría ver a mi novio todo flaco, así con carne estás rico, rico. Bueno, el secreto de hoy es que, cuando escribí esto, andaba llorando. No sé, es que te voy a extrañar mucho. En serio que deseo no viajar sola nunca. ¡Ay, imagínate si un día nos dejamos! Nombre, nooo. Bueno, amor, te amo mucho.",
+      "Si el amor tuviera un nombre, llevaría el tuyo. ❤️ \n      Espero que tengas un hermoso día, como tú, mi cielo. \n      Amor hermoso, te amo muchísimo. Eres el amor de mi vida, eres una persona increíble. \n      Desde que llegaste a mi vida, todo tiene más sentido. Eres mi pilar, mi refugio y la razón principal de mi sonrisa. \n      Contigo, cada momento es una aventura y un sueño hecho realidad. Gracias por ser tan único y por elegir compartir tu camino conmigo. \n      Que este día esté lleno de alegría y de esa luz especial que solo tú tienes. ¡Ya quiero verte!",
+      "No sé qué hice bien para merecerte, pero quiero seguir haciéndolo toda la vida. \n      Creo que esta es una frase muy loca, pero te diré lo que pienso realmente: para mí eres completamente valioso y, por lo tanto, no creo ser la mejor. \n      Es que te va a sonar extraño, pero siempre mi madre me ha dicho que cuando uno ama tanto no se cree merecedor del amor de esa persona... a eso yo le llamo amar. \n      Y tú eres mi amor verdadero, te amo, Gabriel, con todo mi ser y siempre lo haré. \n      Solo ámame y quiéreme como yo lo soy contigo. Seamos el amor que deseamos y vivamos enamorados el tiempo que sea necesario.",
       "Tu sonrisa ilumina incluso mis días más grises.",
       "El mundo es menos pesado cuando pienso en ti.",
       "Quiero una vida entera para seguir encontrando detalles que ame de ti.",
@@ -206,7 +206,7 @@ replyText.addEventListener("keydown", (e) => {
   }
 });
 
-// ✅ Tu openModal (solo agrega estas 3 líneas dentro)
+//  Tu openModal (solo agrega estas 3 líneas dentro)
 function openModal(index, date){
   const dayNumber = index + 1;
   currentDayNumber = dayNumber;
@@ -245,48 +245,47 @@ sendWhatsapp.addEventListener("click", () => {
 
 
 
-// --- Música de fondo ---
+function getURLParam(key) {
+  return new URLSearchParams(window.location.search).get(key);
+}
+
+function safeMusicFilename(name) {
+  if (!name) return null;
+
+  name = decodeURIComponent(name).trim();
+
+  // Quita rutas tipo ../../ o carpetas
+  name = name.split('/').pop().split('\\').pop();
+
+  // Permite solo: letras, números, espacio, guion, underscore y punto
+  if (!/^[\w .-]+$/.test(name)) return null;
+
+  // Permite solo extensiones de audio comunes
+  if (!/\.(mp3|ogg|wav)$/i.test(name)) return null;
+
+  return name;
+}
+
 function playBackgroundMusic() {
   const audio = document.getElementById('bg-music');
   if (!audio) return;
 
-  // --- Opción archivo local por parámetro 'musica' ---
-  let musicaParam = getURLParam('musica');
-  if (musicaParam) {
-    // Decodifica y previene rutas maliciosas
-    musicaParam = decodeURIComponent(musicaParam).replace(/[^\w\d .\-]/g, '');
-    audio.src = 'Music/' + musicaParam;
-  }
+  const musicaParamRaw = getURLParam('musica');
+  const musicaParam = safeMusicFilename(musicaParamRaw);
 
-  // --- Opción YouTube (solo mensaje de ayuda) ---
-  let youtubeParam = getURLParam('youtube');
-  if (youtubeParam) {
-    // Muestra mensaje de ayuda para descargar el audio
-    let helpMsg = document.getElementById('yt-help-msg');
-    if (!helpMsg) {
-      helpMsg = document.createElement('div');
-      helpMsg.id = 'yt-help-msg';
-      helpMsg.style.position = 'fixed';
-      helpMsg.style.right = '18px';
-      helpMsg.style.bottom = '180px';
-      helpMsg.style.background = 'rgba(255,255,255,0.95)';
-      helpMsg.style.color = '#e60026';
-      helpMsg.style.padding = '10px 16px';
-      helpMsg.style.borderRadius = '12px';
-      helpMsg.style.boxShadow = '0 2px 8px #e6002633';
-      helpMsg.style.fontSize = '1.05em';
-      helpMsg.style.zIndex = 100;
-      helpMsg.innerHTML = 'Para usar música de YouTube, descarga el audio (por ejemplo, usando y2mate, 4K Video Downloader, etc.), colócalo en la carpeta <b>Music</b> y usa la URL así:<br><br><code>?musica=nombre.mp3</code>';
-      document.body.appendChild(helpMsg);
-      setTimeout(() => { if(helpMsg) helpMsg.remove(); }, 15000);
-    }
-  }
+  // Si no hay parámetro, usa default
+  const src = musicaParam ? `Music/${musicaParam}` : `Music/music1.mp3`;
 
+  audio.src = src;
+  audio.volume = 0.7;
+  audio.loop = true;
+
+  // Botón
   let btn = document.getElementById('music-btn');
   if (!btn) {
     btn = document.createElement('button');
     btn.id = 'music-btn';
-    btn.textContent = '🔊 Música';
+    btn.textContent = '▶️ Música';
     btn.style.position = 'fixed';
     btn.style.bottom = '18px';
     btn.style.right = '18px';
@@ -299,27 +298,39 @@ function playBackgroundMusic() {
     btn.style.cursor = 'pointer';
     document.body.appendChild(btn);
   }
-  audio.volume = 0.7;
-  audio.loop = true;
-  // Intentar reproducir inmediatamente
-  audio.play().then(() => {
-    btn.textContent = '🔊 Música';
-  }).catch(() => {
-    // Si falla el autoplay, esperar click en el botón
-    btn.textContent = '▶️ Música';
+
+  // Debug de carga
+  audio.addEventListener('error', () => {
+    console.error('❌ Error cargando audio:', audio.src, audio.error);
+    btn.textContent = '❌ Audio no carga';
   });
-  btn.onclick = () => {
-    if (audio.paused) {
-      audio.play();
-      btn.textContent = '🔊 Música';
-    } else {
-      audio.pause();
-      btn.textContent = '🔈 Música';
+
+  audio.addEventListener('canplaythrough', () => {
+    console.log('✅ Audio listo:', audio.src);
+  });
+
+  // Intento autoplay
+  audio.play()
+    .then(() => { btn.textContent = '🔊 Música'; })
+    .catch((e) => {
+      console.warn('⚠️ Autoplay bloqueado:', e);
+      btn.textContent = '▶️ Música';
+    });
+
+  // Click para play/pause
+  btn.onclick = async () => {
+    try {
+      if (audio.paused) {
+        await audio.play();
+        btn.textContent = '🔊 Música';
+      } else {
+        audio.pause();
+        btn.textContent = '🔈 Música';
+      }
+    } catch (e) {
+      console.error('No se pudo reproducir:', e);
     }
   };
 }
 
-// Intentar reproducir la música lo antes posible (al cargar la página)
-window.addEventListener('DOMContentLoaded', () => {
-  playBackgroundMusic();
-});
+window.addEventListener('DOMContentLoaded', playBackgroundMusic);
