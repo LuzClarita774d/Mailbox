@@ -22,15 +22,15 @@
       "Mi lugar favorito siempre será cualquiera donde estés tú.",
       "Gracias por quedarte incluso cuando yo mismo no sabía cómo quedarme.",
       "Prometo seguir eligiéndote cada día, incluso en los días difíciles.",
-      "Me basta un mensaje tuyo para que todo valga la pena y esque cuando hablo contigo todo toma un entorno diferente para mi ya que no importa que este pasando cambia todo para bien mi tomatito, te amo .",
+      "Hoy es una fecha especial pero para  mi todos los dias son especiales cuando estoy contigo.\n Bonito espero tengas un dia lindo no iporta lo que hagas solo recuerda que hay alguien que se muere de amor por ti incluso si no te tiene cerca eres lo mas precioso y presiado en mi espero el año  que vienes  y los que faltan estemos juntos  y si es posible todos los 24   de diciembre estes conmigo, recuerda soy egoista y  tienes que estar conmigo donde yo este siempre , te amo mi vida  ahora no llegara santa llegare yo jajajajaja\n TE AMO.",
       "Si pudiera volver a empezar, correría otra vez hacia ti sin dudarlo. Y esq se que al principio fue dificil pero realmente nunca cambiare lo que tenemos y volveria hacer todo  solo excluyendo lo malo disculpame de todo corzon y prometo amarte de la forma que te mereces.",
       "Eres el “hoy” más bonito que la vida me ha dado  y espero que no solo sea el hoy si no sea lo de siempre y esq  eres lo mas lindo que tengo en mi vida  eres todo para mi quiero que seas mi presente y mi futuro y que en todo momento estar a tu lado mi vida. Te amo mi tomatito .",
       "Te amo en todos mis tiempos: pasado, presente y todo lo que venga. Ya que si soy sincera te quiero en mi vida pero lo que mas deseo es poder ser parte de tu vida y esq no hy nada que me haga mas felz que ser parte de ti y tu de mi  es por eso que todos los dias decido amarte.Te amo ",
-      "Quiero caminar de la mano contigo, aún cuando los caminos se pongan raros.",
-      "Tus abrazos son mi recarga de energía favorita.",
-      "No eres un capítulo, eres mi historia completa.",
-      "Cada latido mío susurra tu nombre muy bajito.",
-      "Desde que llegaste, mis días tienen un brillo que antes no conocían.",
+      "Quiero caminar de la mano contigo, aún cuando los caminos se pongan raros y incluso dificiles,no importa que sea lo que acontesca deseo  realmente siempre estar contigo, deseo que podamos ser el sosten de uno del otro  y que nuestra unión fortalezca nuestra noviazgo  ",
+      "Tus abrazos son mi recarga de energía favorita.\n No se si te pase a ti pero ami si esq  cuando me abrazas se siente una paz tan hermosa que se siente plena y con calma que relamente es inexplicable lo hermoso que me puedes hacer sentir  y esq en esos momentos deseo quedarme siempre abrazada a ti, por eso te pido que nunca olvides habrazarme  ya que son de lo que mas puedo disfrutar,\n Te amo .",
+      "Bonito mi mayor deseo es que crezcamos juntos cada dia en todos los ambitos que existen y que ambos podamos amarnos y respetarnos como deseamos, tengaos experiencias juntos pensando que si no lo hacemos quien mas lo ara si de verdad queremos estar toda la vida no tengamos miedo de ser los mas cursis o los mas enojones seamos nosotros vivamos y a la vez aprendamos de nuestros errores y de las coasas buenas amor quiero que seas tu y tu quieres que sea yo? ",
+      "Hoy agardezco a Dios por perimitirme conocerte y esque las coincidencias no existen y tu eres un plan ya desgnado y creeme que para decirte esto te lo dijo desde mi corazon y esq se que eres tu  un ida te pregunte si creeias en el destino y esq pensamos iguales que si existe pero nosotros desidimos si lo tomamos o lo dejamos y esq  tu eres mi destino y mi elección es por eso que hoy al terminar este año puedo decir que haz sido mi mejor rejalo que la vida me dio  y deseo amarte siempre y elegirnos cada mañana  espeor que hoy recuerdes que eres lo mejor y que debemos dar gracias por el amor que se nos permitio mutuamente  te amo y deseo que te la pases super bien mi vida pero recuerda agradecer pitr todo lo bueno yo hoy agradezco por tenerte en mi vida. Te amo feliz año nuevo.",
+      "Desde que llegaste, mis días tienen un brillo que antes no conocían. \n y esq ahora tu eres mi motivación de todos los dias como si fueras un pensamiento  con la cual me despierto y me duermo es como decir mama eres y seras mi prioridad mi tesoro hermoso ",
       "Quiero seguir construyendo futuros contigo, aunque no sepamos exactamente cómo.",
       "A tu lado, hasta lo cotidiano se siente mágico.",
       "Tú conviertes cualquier momento sencillo en un recuerdo eterno. ✨",
@@ -274,7 +274,7 @@ function playBackgroundMusic() {
   const musicaParam = safeMusicFilename(musicaParamRaw);
 
   // Si no hay parámetro, usa default
-  const src = musicaParam ? `Music/${musicaParam}` : `Music/Eclipse.mp3`;
+  const src = musicaParam ? `Music/${musicaParam}` : `Music/music1.mp3`;
 
   audio.src = src;
   audio.volume = 0.7;
